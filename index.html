@@ -252,31 +252,23 @@
         <h2 class="text-2xl font-heading font-bold text-gray-800 mb-2">Bestseller Products</h2>
         <div class="w-12 h-0.5 bg-theme mx-auto"></div>
       </div>
-      <!-- Category filters -->
-      <div class="flex flex-wrap justify-center gap-10 md:gap-16 mb-12">
-        <button class="category-filter active flex flex-col items-center gap-3 text-theme">
-          <span class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
-            <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </span>
-          <span class="text-xs uppercase tracking-[0.15em] font-medium">Joint</span>
+      <!-- Category filters: icon + label (outline style) -->
+      <div class="flex flex-wrap justify-center gap-8 md:gap-14 mb-12">
+        <button class="category-filter active flex flex-col items-center gap-2 transition-colors text-theme">
+          <i class="fa-solid fa-person-walking text-3xl" aria-hidden="true"></i>
+          <span class="text-xs uppercase tracking-[0.2em] font-medium">Joint</span>
         </button>
-        <button class="category-filter flex flex-col items-center gap-3 text-gray-400 hover:text-gray-600 transition-colors">
-          <span class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
-            <svg class="w-6 h-4 text-blue-500" fill="currentColor" viewBox="0 0 24 10"><ellipse cx="12" cy="5" rx="10" ry="4"/></svg>
-          </span>
-          <span class="text-xs uppercase tracking-[0.15em]">Gut</span>
+        <button class="category-filter flex flex-col items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors">
+          <i class="fa-solid fa-bacteria text-3xl" aria-hidden="true"></i>
+          <span class="text-xs uppercase tracking-[0.2em]">Gut</span>
         </button>
-        <button class="category-filter flex flex-col items-center gap-3 text-gray-400 hover:text-gray-600 transition-colors">
-          <span class="w-12 h-12 rounded-full bg-violet-50 flex items-center justify-center">
-            <svg class="w-6 h-6 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-          </span>
-          <span class="text-xs uppercase tracking-[0.15em]">Sleep</span>
+        <button class="category-filter flex flex-col items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors">
+          <i class="fa-solid fa-moon text-3xl" aria-hidden="true"></i>
+          <span class="text-xs uppercase tracking-[0.2em]">Sleep</span>
         </button>
-        <button class="category-filter flex flex-col items-center gap-3 text-gray-400 hover:text-gray-600 transition-colors">
-          <span class="w-12 h-12 rounded-full bg-theme/10 flex items-center justify-center">
-            <svg class="w-6 h-6 text-theme" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          </span>
-          <span class="text-xs uppercase tracking-[0.15em]">Women's</span>
+        <button class="category-filter flex flex-col items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors">
+          <i class="fa-solid fa-venus text-3xl" aria-hidden="true"></i>
+          <span class="text-xs uppercase tracking-[0.2em]">Women's</span>
         </button>
       </div>
       <!-- Product grid -->
@@ -796,6 +788,18 @@
         dropdown.classList.remove('products-dropdown-open');
         chevron.classList.remove('rotate-180');
       }
+    });
+
+    // Category filter active state (icon + label)
+    document.querySelectorAll('.category-filter').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.category-filter').forEach(function(b) {
+          b.classList.remove('active', 'text-theme');
+          b.classList.add('text-gray-400');
+        });
+        this.classList.add('active', 'text-theme');
+        this.classList.remove('text-gray-400');
+      });
     });
   </script>
 
